@@ -1,10 +1,16 @@
 import React, {useEffect, useState} from 'react';
-import {ActivityIndicator} from 'react-native';
+
+import {
+  NavigationHelpersContext,
+  useNavigation,
+} from '@react-navigation/native';
+
 import api from '../../services/api';
 
 import * as S from './styles';
 
 const Pokemon = () => {
+  const navigation = useNavigation();
   const [pokemon, setPokemon] = useState('');
   const [loading, setLoading] = useState(true);
 
@@ -35,7 +41,7 @@ const Pokemon = () => {
   };
 
   const handleGetInfoPokemon = () => {
-    console.log('cliquei!');
+    navigation.navigate('InfoPokemon');
   };
 
   return (
