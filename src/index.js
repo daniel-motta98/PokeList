@@ -1,10 +1,14 @@
 import React from 'react';
-import {View} from 'react-native';
+import Pokemon from './Pages/Pokemon';
 
-// import { Container } from './styles';
+import * as S from './styles';
 
-const src = () => {
-  return <View />;
+const App = () => {
+  return (
+    <S.Container>
+      <Pokemon />
+    </S.Container>
+  );
 };
 
-export default src;
+export default App;
