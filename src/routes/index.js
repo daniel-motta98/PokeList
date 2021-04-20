@@ -31,6 +31,7 @@ const Routes = () => {
           headerStyle: styles.headerStackStyle,
           headerTintColor: '#fff',
           headerTitleAlign: 'center',
+          headerTitle: 'Info Poke',
         }}
       />
     </Stack.Navigator>

@@ -1,4 +1,4 @@
-import {FlatList} from 'react-native';
+import {FlatList, Image} from 'react-native';
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
@@ -13,6 +13,11 @@ export const Separator = styled.View`
   width: 100%;
   height: 0.5px;
   background: #545454;
+`;
+
+export const ImagePokemon = styled(Image)`
+  width: 70px;
+  height: 70px;
 `;
 
 export const Text = styled.Text`

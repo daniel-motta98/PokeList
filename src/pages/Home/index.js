@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from 'react';
+import {Image} from 'react-native';
 
-import {
-  NavigationHelpersContext,
-  useNavigation,
-} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 import api from '../../services/api';
 
@@ -30,11 +28,20 @@ const Pokemon = () => {
     getPokemon();
   }, []);
 
-  const PokemonRenderItem = ({item}) => {
+  const PokemonRenderItem = item => {
+    const {name, url} = item.item;
+
+    const pokemonId = url
+      .replace('https://pokeapi.co/api/v2/pokemon/', '')
+      .replace('/', '');
+
+    const pokemonURL = `https://pokeres.bastionbot.org/images/pokemon/${pokemonId}.png`;
+
     return (
       <S.BoxFlatList>
         <S.ButtonInfoPokemon onPress={handleGetInfoPokemon}>
-          <S.Text>{item.name}</S.Text>
+          <S.ImagePokemon source={{uri: pokemonURL}} />
+          <S.Text>{name}</S.Text>
         </S.ButtonInfoPokemon>
       </S.BoxFlatList>
     );
