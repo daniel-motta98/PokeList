@@ -9,7 +9,7 @@ import * as S from './styles';
 
 const Pokemon = () => {
   const navigation = useNavigation();
-  const [pokemon, setPokemon] = useState('');
+  const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -36,10 +36,9 @@ const Pokemon = () => {
       .replace('/', '');
 
     const pokemonURL = `https://pokeres.bastionbot.org/images/pokemon/${pokemonId}.png`;
-
     return (
       <S.BoxFlatList>
-        <S.ButtonInfoPokemon onPress={handleGetInfoPokemon}>
+        <S.ButtonInfoPokemon onPress={() => handleGetInfoPokemon(pokemonId)}>
           <S.ImagePokemon source={{uri: pokemonURL}} />
           <S.Text>{name}</S.Text>
         </S.ButtonInfoPokemon>
@@ -47,8 +46,10 @@ const Pokemon = () => {
     );
   };
 
-  const handleGetInfoPokemon = () => {
-    navigation.navigate('InfoPokemon');
+  const handleGetInfoPokemon = async id => {
+    navigation.navigate('InfoPokemon', {
+      id: id,
+    });
   };
 
   return (

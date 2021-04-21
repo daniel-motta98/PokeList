@@ -1,9 +1,7 @@
 import {FlatList, Image} from 'react-native';
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
-  flex: 1;
-`;
+export const Container = styled.View``;
 
 export const FlatListCustom = styled(FlatList)`
   margin-top: 200px;
@@ -22,14 +20,19 @@ export const ImagePokemon = styled(Image)`
 
 export const Text = styled.Text`
   color: #ccc;
-  font-size: 18px;
+  font-size: 20px;
+  margin-left: 10px;
+  font-weight: bold;
 `;
 
 export const BoxFlatList = styled.View`
-  padding: 20px;
+  padding: 15px;
 `;
 
-export const ButtonInfoPokemon = styled.TouchableOpacity``;
+export const ButtonInfoPokemon = styled.TouchableOpacity`
+  flex-direction: row;
+  align-items: center;
+`;
 
 export const LoadingIndicator = styled.ActivityIndicator`
   justify-content: center;
