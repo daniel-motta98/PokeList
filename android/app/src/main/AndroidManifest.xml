@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.teste_compasso_uol">
+  package="com.poker_list">
 
     <uses-permission android:name="android.permission.INTERNET" />
 

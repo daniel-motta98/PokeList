@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "teste_compasso_uol.app"
-               BlueprintName = "teste_compasso_uol"
-               ReferencedContainer = "container:teste_compasso_uol.xcodeproj">
+               BuildableName = "poker_list.app"
+               BlueprintName = "poker_list"
+               ReferencedContainer = "container:poker_list.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "teste_compasso_uolTests.xctest"
-               BlueprintName = "teste_compasso_uolTests"
-               ReferencedContainer = "container:teste_compasso_uol.xcodeproj">
+               BuildableName = "poker_listTests.xctest"
+               BlueprintName = "poker_listTests"
+               ReferencedContainer = "container:poker_list.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "teste_compasso_uol.app"
-            BlueprintName = "teste_compasso_uol"
-            ReferencedContainer = "container:teste_compasso_uol.xcodeproj">
+            BuildableName = "poker_list.app"
+            BlueprintName = "poker_list"
+            ReferencedContainer = "container:poker_list.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "teste_compasso_uol.app"
-            BlueprintName = "teste_compasso_uol"
-            ReferencedContainer = "container:teste_compasso_uol.xcodeproj">
+            BuildableName = "poker_list.app"
+            BlueprintName = "poker_list"
+            ReferencedContainer = "container:poker_list.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

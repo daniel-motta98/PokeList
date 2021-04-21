@@ -131,7 +131,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.teste_compasso_uol"
+        applicationId "com.poker_list"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

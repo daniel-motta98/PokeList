@@ -1,4 +1,4 @@
-package com.teste_compasso_uol;
+package com.poker_list;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "teste_compasso_uol";
+    return "poker_list";
   }
 }

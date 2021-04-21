@@ -1,10 +1,10 @@
-import {FlatList, Image} from 'react-native';
+import {Dimensions, FlatList, Image} from 'react-native';
 import styled from 'styled-components/native';
 
 export const Container = styled.View``;
 
 export const FlatListCustom = styled(FlatList)`
-  margin-top: 200px;
+  margin-top: 20px;
 `;
 
 export const Separator = styled.View`

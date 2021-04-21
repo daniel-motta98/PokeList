@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {Image} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
+
+import Input from '../../components/Input';
 
 import api from '../../services/api';
 
@@ -54,6 +55,7 @@ const Pokemon = () => {
 
   return (
     <S.Container>
+      <Input placeholder="Busque o pokémon polo nome" />
       {loading && <S.LoadingIndicator size="large" color="#ccc" />}
       {!loading && (
         <S.FlatListCustom
