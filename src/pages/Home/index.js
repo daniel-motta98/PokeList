@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useCallback} from 'react';
+import {RefreshControl} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
 
@@ -11,6 +12,7 @@ import * as S from './styles';
 const Pokemon = () => {
   const navigation = useNavigation();
   const [pokemon, setPokemon] = useState([]);
+  const [refreshing, setRefreshing] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -27,6 +29,15 @@ const Pokemon = () => {
       }
     };
     getPokemon();
+  }, []);
+
+  const wait = timeout => {
+    return new Promise(resolve => setTimeout(resolve, timeout));
+  };
+
+  const onRefresh = useCallback(() => {
+    setRefreshing(true);
+    wait(1000).then(() => setRefreshing(false));
   }, []);
 
   const PokemonRenderItem = item => {
@@ -61,8 +72,11 @@ const Pokemon = () => {
         <S.FlatListCustom
           data={pokemon}
           ItemSeparatorComponent={() => <S.Separator />}
-          keyExtractor={item => item.name.toString()}
+          keyExtractor={item => item.url.toString()}
           renderItem={PokemonRenderItem}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }
         />
       )}
     </S.Container>

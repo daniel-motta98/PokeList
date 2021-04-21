@@ -1,7 +1,9 @@
 import {Image} from 'react-native';
 import styled from 'styled-components/native';
 
-export const Container = styled.View``;
+export const Container = styled.View`
+  flex: 1;
+`;
 
 export const ImagePokemon = styled(Image)`
   height: 200px;
@@ -114,4 +116,10 @@ export const LabelInfo = styled.Text`
   align-items: center;
 
   margin: 30px;
+`;
+
+export const LoadingIndicator = styled.ActivityIndicator`
+  justify-content: center;
+  align-items: center;
+  flex: 1;
 `;
