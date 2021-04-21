@@ -1,5 +1,7 @@
 import React, {useEffect, useState, useCallback} from 'react';
-import {RefreshControl} from 'react-native';
+import {RefreshControl, TouchableOpacity, Text} from 'react-native';
+
+import {show} from '../../config/Toast';
 
 import {useNavigation} from '@react-navigation/native';
 
@@ -37,7 +39,14 @@ const Pokemon = () => {
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
-    wait(1000).then(() => setRefreshing(false));
+    wait(1000).then(() => {
+      setRefreshing(false);
+      show({
+        message: 'Sucesso!',
+        description: 'Página atualizada com sucesso! 🎊 🎉',
+        type: 'success',
+      });
+    });
   }, []);
 
   const PokemonRenderItem = item => {
@@ -66,7 +75,7 @@ const Pokemon = () => {
 
   return (
     <S.Container>
-      <Input placeholder="Busque o pokémon pelo nome" />
+      {/* <Input placeholder="Busque o pokémon pelo nome" /> */}
       {loading && <S.LoadingIndicator size="large" color="#ccc" />}
       {!loading && (
         <S.FlatListCustom

@@ -1,12 +1,18 @@
 import React from 'react';
+import {SafeAreaView} from 'react-native';
 
+import FlashMessage from 'react-native-flash-message';
 import {NavigationContainer} from '@react-navigation/native';
+
 import Routes from './src/routes';
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Routes />
+      <SafeAreaView style={{backgroundColor: '#1a1a1a', flex: 1}}>
+        <FlashMessage position="top" />
+        <Routes />
+      </SafeAreaView>
     </NavigationContainer>
   );
 };
