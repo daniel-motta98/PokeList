@@ -18,8 +18,6 @@ const InfoPokemon = ({route}) => {
 
         const {data} = response;
 
-        console.log(data);
-
         setNamePokemon(data.name);
         setHeightPokemon(data.height);
         setWeightPokemon(data.weight);

@@ -55,7 +55,7 @@ const Pokemon = () => {
 
   return (
     <S.Container>
-      <Input placeholder="Busque o pokémon polo nome" />
+      <Input placeholder="Busque o pokémon pelo nome" />
       {loading && <S.LoadingIndicator size="large" color="#ccc" />}
       {!loading && (
         <S.FlatListCustom
