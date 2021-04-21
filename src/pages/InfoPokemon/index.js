@@ -12,7 +12,6 @@ const InfoPokemon = ({route}) => {
   const {id} = route.params;
 
   useEffect(() => {
-    // eslint-disable-next-line no-shadow
     const getInfoPokemon = async () => {
       try {
         const response = await api.get(`/pokemon/${id}`);
@@ -30,7 +29,7 @@ const InfoPokemon = ({route}) => {
     };
 
     getInfoPokemon();
-  }, []);
+  }, [id]);
 
   const pokemonURL = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`;
 
