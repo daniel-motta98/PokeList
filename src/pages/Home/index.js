@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useCallback} from 'react';
-import {RefreshControl, TouchableOpacity, Text} from 'react-native';
+import {RefreshControl, View, Text} from 'react-native';
 
 import {show} from '../../config/Toast';
 
@@ -16,6 +16,7 @@ const Pokemon = () => {
   const [pokemon, setPokemon] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [searchPokemon, setSearchPokemon] = useState('');
 
   useEffect(() => {
     const getPokemon = async () => {
@@ -73,19 +74,25 @@ const Pokemon = () => {
     });
   };
 
+  const searchPokemonName = pokemon.filter(item => {
+    return item.name.indexOf(searchPokemon) >= 0;
+  });
+
   return (
     <S.Container>
       <Input
         placeholder="Busque o pokémon pelo nome"
         keyboardType="default"
         autoCapitalize="none"
+        onChangeText={text => setSearchPokemon(text)}
+        value={searchPokemon}
       />
       {loading && <S.LoadingIndicator size="large" color="#ccc" />}
       {!loading && (
         <S.FlatListCustom
-          data={pokemon}
+          data={searchPokemonName}
           ItemSeparatorComponent={() => <S.Separator />}
-          keyExtractor={item => item.url.toString()}
+          keyExtractor={(item, index) => index.toString()}
           renderItem={PokemonRenderItem}
           refreshControl={
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
