@@ -39,6 +39,7 @@ export const LabelWeightPokemon = styled.Text`
 
   flex: 1;
   text-align: center;
+  font-weight: bold;
 `;
 
 export const HeightPokemon = styled.Text`
@@ -61,6 +62,7 @@ export const LabelHeightPokemon = styled.Text`
 
   flex: 1;
   text-align: center;
+  font-weight: bold;
 `;
 
 export const BoxBaseExperiencePokemon = styled.View`
@@ -90,6 +92,7 @@ export const LabelBaseExperiencePokemon = styled.Text`
 
   flex: 1;
   text-align: center;
+  font-weight: bold;
 `;
 
 export const BoxAbilityPokemon = styled.View`
@@ -108,6 +111,7 @@ export const LabelAbilityPokemon = styled.Text`
 
   flex: 1;
   text-align: center;
+  font-weight: bold;
 `;
 
 export const LabelInfo = styled.Text`
