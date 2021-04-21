@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native';
+import {SafeAreaView, StatusBar} from 'react-native';
 
 import FlashMessage from 'react-native-flash-message';
 import {NavigationContainer} from '@react-navigation/native';

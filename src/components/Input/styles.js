@@ -16,6 +16,9 @@ export const BoxInconSearchAndTextInput = styled.View`
 
 export const CustomIcon = styled(Icon)`
   margin-top: 10px;
+  position: absolute;
+  z-index: 999;
+  padding-left: 2px;
 `;
 
 export const SearchInput = styled.TextInput`
@@ -24,4 +27,5 @@ export const SearchInput = styled.TextInput`
   border-radius: 10px;
   height: 55px;
   padding: 10px;
+  padding-left: 40px;
 `;
