@@ -5,7 +5,10 @@ import {show} from '../../config/Toast';
 
 import {useNavigation} from '@react-navigation/native';
 
+import {checkedConnected} from '../../config/Connection';
 import Input from '../../components/Input';
+
+import NoConnection from '../../pages/NoConnection';
 
 import api from '../../services/api';
 
@@ -16,6 +19,7 @@ const Pokemon = () => {
   const [pokemon, setPokemon] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [connectionStatus, setConnectionStatus] = useState(false);
   const [searchPokemon, setSearchPokemon] = useState('');
 
   useEffect(() => {
@@ -26,7 +30,12 @@ const Pokemon = () => {
 
         setPokemon(data.results);
       } catch (err) {
-        console.log(err);
+        show({
+          message: 'Ops, algo deu errado. 😕',
+          description:
+            'Erro ao carregar a página, verifique sua conexão com a internet ou tente novamente mais tarde.',
+          type: 'danger',
+        });
       } finally {
         setLoading(false);
       }
@@ -78,28 +87,43 @@ const Pokemon = () => {
     return item.name.indexOf(searchPokemon) >= 0;
   });
 
+  checkedConnected().then(res => {
+    setConnectionStatus(res);
+  });
+
   return (
-    <S.Container>
-      <Input
-        placeholder="Busque o pokémon pelo nome"
-        keyboardType="default"
-        autoCapitalize="none"
-        onChangeText={text => setSearchPokemon(text)}
-        value={searchPokemon}
-      />
-      {loading && <S.LoadingIndicator size="large" color="#ccc" />}
-      {!loading && (
-        <S.FlatListCustom
-          data={searchPokemonName}
-          ItemSeparatorComponent={() => <S.Separator />}
-          keyExtractor={(item, index) => index.toString()}
-          renderItem={PokemonRenderItem}
-          refreshControl={
-            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-          }
-        />
+    <>
+      {!connectionStatus && <NoConnection />}
+      {connectionStatus && (
+        <S.Container>
+          {loading && <S.LoadingIndicator size="large" color="#ccc" />}
+          {!loading && (
+            <>
+              <Input
+                placeholder="Busque o pokémon pelo nome"
+                keyboardType="default"
+                autoCapitalize="none"
+                onChangeText={text => setSearchPokemon(text)}
+                value={searchPokemon}
+              />
+
+              <S.FlatListCustom
+                data={searchPokemonName}
+                ItemSeparatorComponent={() => <S.Separator />}
+                keyExtractor={(item, index) => index.toString()}
+                renderItem={PokemonRenderItem}
+                refreshControl={
+                  <RefreshControl
+                    refreshing={refreshing}
+                    onRefresh={onRefresh}
+                  />
+                }
+              />
+            </>
+          )}
+        </S.Container>
       )}
-    </S.Container>
+    </>
   );
 };
 

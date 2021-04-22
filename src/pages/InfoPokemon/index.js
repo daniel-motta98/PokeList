@@ -1,4 +1,7 @@
 import React, {useState, useEffect} from 'react';
+
+import {show} from '../../config/Toast';
+
 import api from '../../services/api';
 
 import * as S from './styles';
@@ -25,7 +28,12 @@ const InfoPokemon = ({route}) => {
         setAbilityPokemon(data.abilities);
         setBaseExperiencePokemon(data.base_experience);
       } catch (err) {
-        console.log(err.response);
+        show({
+          message: 'Ops, algo deu errado. 😕',
+          description:
+            'Erro ao carregar a página, verifique sua conexão com a internet ou tente novamente mais tarde.',
+          type: 'danger',
+        });
       } finally {
         setLoading(false);
       }
