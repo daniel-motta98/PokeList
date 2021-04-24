@@ -5,8 +5,25 @@ export const Container = styled.View`
   flex: 1;
 `;
 
-export const FlatListCustom = styled(FlatList)`
-  margin-top: 20px;
+export const FlatListCustom = styled(FlatList)``;
+
+export const BoxButtonLoadMore = styled.View`
+  align-items: center;
+  margin: 10px;
+`;
+
+export const ButtonReadMore = styled.TouchableOpacity`
+  border: 1px solid #ccc;
+  width: 130px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+`;
+
+export const LabelButtonReadMore = styled.Text`
+  color: #fff;
+  font-weight: bold;
 `;
 
 export const Separator = styled.View`

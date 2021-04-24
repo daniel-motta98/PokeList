@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useCallback} from 'react';
-import {RefreshControl, View, Text} from 'react-native';
+import {ActivityIndicator} from 'react-native';
 
 import {show} from '../../config/Toast';
 
@@ -14,14 +14,17 @@ import * as S from './styles';
 const Pokemon = () => {
   const navigation = useNavigation();
   const [pokemon, setPokemon] = useState([]);
-  const [refreshing, setRefreshing] = useState(false);
   const [loading, setLoading] = useState(true);
   const [searchPokemon, setSearchPokemon] = useState('');
+  const [loadingPagination, setLoadingPagination] = useState(true);
+  const [currentPage, setCurrentPage] = useState(10);
 
   useEffect(() => {
     const getPokemon = async () => {
       try {
-        const response = await api.get('/pokemon');
+        const response = await api.get(
+          `/pokemon?offset=0&limit=${currentPage}`,
+        );
         const {data} = response;
 
         setPokemon(data.results);
@@ -34,28 +37,44 @@ const Pokemon = () => {
         });
       } finally {
         setLoading(false);
+        setLoadingPagination(false);
       }
     };
     getPokemon();
-  }, []);
+  }, [currentPage]);
 
-  const wait = timeout => {
-    return new Promise(resolve => setTimeout(resolve, timeout));
+  const handleButtonReadMore = () => {
+    return (
+      <S.BoxButtonLoadMore>
+        {loadingPagination && (
+          <ActivityIndicator size="small" color="#cecece" />
+        )}
+
+        {!loadingPagination && (
+          <S.ButtonReadMore onPress={handleReadMore}>
+            <S.LabelButtonReadMore>VER MAIS</S.LabelButtonReadMore>
+          </S.ButtonReadMore>
+        )}
+      </S.BoxButtonLoadMore>
+    );
   };
 
-  const onRefresh = useCallback(() => {
-    setRefreshing(true);
-    wait(1000).then(() => {
-      setRefreshing(false);
-      show({
-        message: 'Sucesso!',
-        description: 'Página atualizada com sucesso! 🎊 🎉',
-        type: 'success',
-      });
-    });
-  }, []);
+  const handleReadMore = () => {
+    setCurrentPage(currentPage + 10);
+    setLoadingPagination(true);
+  };
 
-  const PokemonRenderItem = item => {
+  const handleGetInfoPokemon = async id => {
+    navigation.navigate('InfoPokemon', {
+      id: id,
+    });
+  };
+
+  const searchPokemonName = pokemon.filter(item => {
+    return item.name.indexOf(searchPokemon) >= 0;
+  });
+
+  const RenderItem = item => {
     const {name, url} = item.item;
 
     const pokemonId = url
@@ -72,16 +91,6 @@ const Pokemon = () => {
       </S.BoxFlatList>
     );
   };
-
-  const handleGetInfoPokemon = async id => {
-    navigation.navigate('InfoPokemon', {
-      id: id,
-    });
-  };
-
-  const searchPokemonName = pokemon.filter(item => {
-    return item.name.indexOf(searchPokemon) >= 0;
-  });
 
   return (
     <>
@@ -101,10 +110,10 @@ const Pokemon = () => {
               data={searchPokemonName}
               ItemSeparatorComponent={() => <S.Separator />}
               keyExtractor={(item, index) => index.toString()}
-              renderItem={PokemonRenderItem}
-              refreshControl={
-                <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-              }
+              renderItem={RenderItem}
+              ListFooterComponent={handleButtonReadMore}
+              removeClippedSubviews={true}
+              onEndReachedThreshold={0}
             />
           </>
         )}
