@@ -16,7 +16,7 @@ export const BoxButtonLoadMore = styled.View`
 `;
 
 export const ButtonReadMore = styled.TouchableOpacity`
-  border: 1px solid #ccc;
+  border: 2px solid #aaaa;
   width: 130px;
   height: 40px;
   align-items: center;
@@ -25,15 +25,9 @@ export const ButtonReadMore = styled.TouchableOpacity`
 `;
 
 export const LabelButtonReadMore = styled.Text`
-  color: #fff;
+  color: #aaaa;
   font-weight: bold;
 `;
-
-// export const Separator = styled.View`
-//   width: 100%;
-//   height: 0.5px;
-//   background: #545454;
-// `;
 
 export const ImagePokemon = styled(Image)`
   width: 70px;
@@ -55,9 +49,10 @@ export const BoxFlatList = styled.View`
 export const ButtonInfoPokemon = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
-  background: #aaaaaa;
+  background: #fff;
   height: 150px;
   border-radius: 10px;
+  elevation: 10;
 `;
 
 export const LoadingIndicator = styled.ActivityIndicator`

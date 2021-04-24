@@ -7,6 +7,7 @@ import api from '../../services/api';
 import * as S from './styles';
 
 const InfoPokemon = ({route}) => {
+  const [pokemons, setPokemons] = useState([]);
   const [namePokemon, setNamePokemon] = useState('');
   const [heightPokemon, setHeightPokemon] = useState('');
   const [weightPokemon, setWeightPokemon] = useState('');
@@ -21,7 +22,8 @@ const InfoPokemon = ({route}) => {
         const response = await api.get(`/pokemon/${id}`);
 
         const {data} = response;
-
+        console.log(data);
+        setPokemons(data);
         setNamePokemon(data.name);
         setHeightPokemon(data.height);
         setWeightPokemon(data.weight);
@@ -52,42 +54,43 @@ const InfoPokemon = ({route}) => {
           <S.BoxImagePokemon>
             <S.ImagePokemon source={{uri: pokemonURL}} />
           </S.BoxImagePokemon>
-          <S.NamePokemon>{namePokemon}</S.NamePokemon>
+          <S.BoxInfoPokemon>
+            <S.NamePokemon>{namePokemon}</S.NamePokemon>
 
-          <S.BoxWeightAndHeightPokemon>
-            <S.WeightPokemon>{heightPokemon}</S.WeightPokemon>
-            <S.HeightPokemon>{weightPokemon}</S.HeightPokemon>
-          </S.BoxWeightAndHeightPokemon>
+            <S.BoxWeightAndHeightPokemon>
+              <S.WeightPokemon>{heightPokemon}</S.WeightPokemon>
+              <S.ValueBaseExperiencePokemon>
+                {baseExperiencePokemon}
+              </S.ValueBaseExperiencePokemon>
+              <S.HeightPokemon>{weightPokemon}</S.HeightPokemon>
+            </S.BoxWeightAndHeightPokemon>
 
-          <S.BoxLabelWeightAndHeight>
-            <S.LabelWeightPokemon>Peso</S.LabelWeightPokemon>
-            <S.LabelHeightPokemon>Altura</S.LabelHeightPokemon>
-          </S.BoxLabelWeightAndHeight>
+            <S.BoxLabelWeightAndHeight>
+              <S.LabelWeightPokemon>Altura</S.LabelWeightPokemon>
+              <S.LabelBaseExperiencePokemon>XP</S.LabelBaseExperiencePokemon>
+              <S.LabelHeightPokemon>Peso</S.LabelHeightPokemon>
+            </S.BoxLabelWeightAndHeight>
 
-          <S.BoxBaseExperiencePokemon>
-            <S.ValueBaseExperiencePokemon>
-              {baseExperiencePokemon}
-            </S.ValueBaseExperiencePokemon>
+            <S.BoxBaseExperiencePokemon>
+              <S.BoxAbilityPokemon>
+                {abilityPokemon.map((abilityPokemons, key) => {
+                  return (
+                    <S.Text key={key}>{abilityPokemons.ability.name}</S.Text>
+                  );
+                })}
+              </S.BoxAbilityPokemon>
+            </S.BoxBaseExperiencePokemon>
 
-            <S.BoxAbilityPokemon>
-              {abilityPokemon.map((abilityPokemons, key) => {
-                return (
-                  <S.Text key={key}>{abilityPokemons.ability.name}</S.Text>
-                );
-              })}
-            </S.BoxAbilityPokemon>
-          </S.BoxBaseExperiencePokemon>
+            <S.BoxLabelBaseExperiencePokemon>
+              <S.LabelAbilityPokemon>Habilidade</S.LabelAbilityPokemon>
+            </S.BoxLabelBaseExperiencePokemon>
 
-          <S.BoxLabelBaseExperiencePokemon>
-            <S.LabelBaseExperiencePokemon>XP</S.LabelBaseExperiencePokemon>
-            <S.LabelAbilityPokemon>Habilidade</S.LabelAbilityPokemon>
-          </S.BoxLabelBaseExperiencePokemon>
-
-          <S.LabelInfo>
-            As informações apresentadas acima são de acordo com a base de dados
-            pokeapi.co. Qualquer informação que esteja incorreta é de total
-            responsabilidade da mesma.
-          </S.LabelInfo>
+            <S.LabelInfo>
+              As informações apresentadas acima são de acordo com a base de
+              dados pokeapi.co. Qualquer informação que esteja incorreta é de
+              total responsabilidade da mesma.
+            </S.LabelInfo>
+          </S.BoxInfoPokemon>
         </>
       )}
     </S.Container>

@@ -13,7 +13,7 @@ const Routes = () => {
     <Stack.Navigator
       screenOptions={{
         cardStyle: {
-          backgroundColor: '#333',
+          backgroundColor: '#eaeaea',
         },
       }}>
       <Stack.Screen
@@ -40,7 +40,7 @@ const Routes = () => {
 
 const styles = StyleSheet.create({
   headerStackStyle: {
-    backgroundColor: '#333',
+    backgroundColor: '#eaeaea',
     elevation: 0,
     borderWidth: 0,
     borderColor: 'transparent',

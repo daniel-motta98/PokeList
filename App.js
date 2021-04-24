@@ -9,7 +9,7 @@ import Routes from './src/routes';
 const App = () => {
   return (
     <NavigationContainer>
-      <SafeAreaView style={{backgroundColor: '#1a1a1a', flex: 1}}>
+      <SafeAreaView style={{backgroundColor: '#aaa', flex: 1}}>
         <Routes />
       </SafeAreaView>
     </NavigationContainer>

@@ -3,21 +3,34 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   flex: 1;
+  background: #eaeaea;
+  padding: 10px;
+`;
+
+export const BoxInfoPokemon = styled.View`
+  background: #fff;
+  margin-top: -35px;
+  border-radius: 15px;
+  elevation: 1;
 `;
 
 export const ImagePokemon = styled(Image)`
   height: 200px;
   width: 200px;
+  z-index: 1;
 `;
 
 export const BoxImagePokemon = styled.View`
+  z-index: 1;
   align-items: center;
+  elevation: 1;
 `;
 
 export const NamePokemon = styled.Text`
   text-align: center;
-  font-size: 50px;
-  color: #cecece;
+  font-size: 30px;
+  color: #222;
+  margin-top: 30px;
 `;
 
 export const BoxWeightAndHeightPokemon = styled.View`
@@ -26,25 +39,22 @@ export const BoxWeightAndHeightPokemon = styled.View`
   margin-top: 40px;
 `;
 export const WeightPokemon = styled.Text`
-  font-size: 35px;
-  font-weight: bold;
+  font-size: 20px;
   color: #7f7f7f;
 
   flex: 1;
   text-align: center;
 `;
 export const LabelWeightPokemon = styled.Text`
-  font-size: 25px;
-  color: #151515;
+  font-size: 20px;
+  color: #21b235;
 
   flex: 1;
   text-align: center;
-  font-weight: bold;
 `;
 
 export const HeightPokemon = styled.Text`
-  font-size: 35px;
-  font-weight: bold;
+  font-size: 20px;
   color: #7f7f7f;
 
   flex: 1;
@@ -57,12 +67,11 @@ export const BoxLabelWeightAndHeight = styled.View`
 `;
 
 export const LabelHeightPokemon = styled.Text`
-  font-size: 25px;
-  color: #151515;
+  font-size: 20px;
+  color: #21b235;
 
   flex: 1;
   text-align: center;
-  font-weight: bold;
 `;
 
 export const BoxBaseExperiencePokemon = styled.View`
@@ -72,13 +81,11 @@ export const BoxBaseExperiencePokemon = styled.View`
 `;
 
 export const ValueBaseExperiencePokemon = styled.Text`
-  font-size: 35px;
-  font-weight: bold;
-  text-align: center;
+  font-size: 20px;
   color: #7f7f7f;
 
   flex: 1;
-  padding-top: 15px;
+  text-align: center;
 `;
 
 export const BoxLabelBaseExperiencePokemon = styled.View`
@@ -87,31 +94,28 @@ export const BoxLabelBaseExperiencePokemon = styled.View`
 `;
 
 export const LabelBaseExperiencePokemon = styled.Text`
-  font-size: 25px;
-  color: #151515;
+  font-size: 20px;
+  color: #21b235;
 
   flex: 1;
   text-align: center;
-  font-weight: bold;
 `;
 
 export const BoxAbilityPokemon = styled.View`
   flex: 1;
 `;
 export const Text = styled.Text`
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 15px;
   color: #7f7f7f;
   text-align: center;
 `;
 
 export const LabelAbilityPokemon = styled.Text`
-  font-size: 25px;
-  color: #151515;
+  font-size: 20px;
+  color: #21b235;
 
   flex: 1;
   text-align: center;
-  font-weight: bold;
 `;
 
 export const LabelInfo = styled.Text`
@@ -127,5 +131,3 @@ export const LoadingIndicator = styled.ActivityIndicator`
   align-items: center;
   flex: 1;
 `;
-
-export const Box = styled.View``;

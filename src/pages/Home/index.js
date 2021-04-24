@@ -1,4 +1,5 @@
-import React, {useEffect, useState, useCallback} from 'react';
+import React, {useEffect, useState} from 'react';
+
 import {ActivityIndicator} from 'react-native';
 
 import {show} from '../../config/Toast';
@@ -107,6 +108,8 @@ const Pokemon = () => {
               onChangeText={text => setSearchPokemon(text)}
               value={searchPokemon}
             />
+
+            {pokemon.name && <Text>Oiii</Text>}
 
             <S.FlatListCustom
               data={searchPokemonName}
