@@ -127,3 +127,5 @@ export const LoadingIndicator = styled.ActivityIndicator`
   align-items: center;
   flex: 1;
 `;
+
+export const Box = styled.View``;

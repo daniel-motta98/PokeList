@@ -22,10 +22,11 @@ export const CustomIcon = styled(Icon)`
 `;
 
 export const SearchInput = styled.TextInput`
-  background: #222;
+  background: #dbdbdb;
   width: ${widthScreen * 0.9}px;
   border-radius: 10px;
   height: 55px;
   padding: 10px;
+  color: #222;
   padding-left: 40px;
 `;

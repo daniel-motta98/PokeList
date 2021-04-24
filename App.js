@@ -10,7 +10,6 @@ const App = () => {
   return (
     <NavigationContainer>
       <SafeAreaView style={{backgroundColor: '#1a1a1a', flex: 1}}>
-        <FlashMessage position="top" />
         <Routes />
       </SafeAreaView>
     </NavigationContainer>

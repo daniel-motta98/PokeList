@@ -3,9 +3,12 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   flex: 1;
+  background: #eaeaea;
 `;
 
-export const FlatListCustom = styled(FlatList)``;
+export const FlatListCustom = styled(FlatList)`
+  margin-top: 20px;
+`;
 
 export const BoxButtonLoadMore = styled.View`
   align-items: center;
@@ -26,11 +29,11 @@ export const LabelButtonReadMore = styled.Text`
   font-weight: bold;
 `;
 
-export const Separator = styled.View`
-  width: 100%;
-  height: 0.5px;
-  background: #545454;
-`;
+// export const Separator = styled.View`
+//   width: 100%;
+//   height: 0.5px;
+//   background: #545454;
+// `;
 
 export const ImagePokemon = styled(Image)`
   width: 70px;
@@ -45,12 +48,16 @@ export const Text = styled.Text`
 `;
 
 export const BoxFlatList = styled.View`
-  padding: 15px;
+  padding: 5px;
+  flex: 1;
 `;
 
 export const ButtonInfoPokemon = styled.TouchableOpacity`
-  flex-direction: row;
+  justify-content: center;
   align-items: center;
+  background: #aaaaaa;
+  height: 150px;
+  border-radius: 10px;
 `;
 
 export const LoadingIndicator = styled.ActivityIndicator`

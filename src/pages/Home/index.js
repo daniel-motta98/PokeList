@@ -17,7 +17,7 @@ const Pokemon = () => {
   const [loading, setLoading] = useState(true);
   const [searchPokemon, setSearchPokemon] = useState('');
   const [loadingPagination, setLoadingPagination] = useState(true);
-  const [currentPage, setCurrentPage] = useState(10);
+  const [currentPage, setCurrentPage] = useState(20);
 
   useEffect(() => {
     const getPokemon = async () => {
@@ -60,7 +60,7 @@ const Pokemon = () => {
   };
 
   const handleReadMore = () => {
-    setCurrentPage(currentPage + 10);
+    setCurrentPage(currentPage + 20);
     setLoadingPagination(true);
   };
 
@@ -92,6 +92,8 @@ const Pokemon = () => {
     );
   };
 
+  const numColumns = 2;
+
   return (
     <>
       <S.Container>
@@ -108,12 +110,12 @@ const Pokemon = () => {
 
             <S.FlatListCustom
               data={searchPokemonName}
-              ItemSeparatorComponent={() => <S.Separator />}
               keyExtractor={(item, index) => index.toString()}
               renderItem={RenderItem}
               ListFooterComponent={handleButtonReadMore}
               removeClippedSubviews={true}
               onEndReachedThreshold={0}
+              numColumns={numColumns}
             />
           </>
         )}
