@@ -60,3 +60,10 @@ export const LoadingIndicator = styled.ActivityIndicator`
   align-items: center;
   flex: 1;
 `;
+
+export const LabelInfoSearchPokemonName = styled.Text`
+  text-align: center;
+  margin-top: 20px;
+  color: #7f7f7f;
+  margin: 20px;
+`;

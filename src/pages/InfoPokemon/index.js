@@ -7,7 +7,7 @@ import api from '../../services/api';
 import * as S from './styles';
 
 const InfoPokemon = ({route}) => {
-  const [pokemons, setPokemons] = useState([]);
+  const [typePokemon, setTypePokemon] = useState([]);
   const [namePokemon, setNamePokemon] = useState('');
   const [heightPokemon, setHeightPokemon] = useState('');
   const [weightPokemon, setWeightPokemon] = useState('');
@@ -23,7 +23,7 @@ const InfoPokemon = ({route}) => {
 
         const {data} = response;
         console.log(data);
-        setPokemons(data);
+        setTypePokemon(data);
         setNamePokemon(data.name);
         setHeightPokemon(data.height);
         setWeightPokemon(data.weight);

@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {Text} from 'react-native';
 
 import {ActivityIndicator} from 'react-native';
 
@@ -101,15 +102,22 @@ const Pokemon = () => {
         {loading && <S.LoadingIndicator size="large" color="#ccc" />}
         {!loading && (
           <>
+            {searchPokemonName.length === 0 && (
+              <S.LabelInfoSearchPokemonName>
+                Clique em "ver mais" para carregar sua tela, se nenhum pokémon
+                aparecer, significa que não temos ele cadastrado na nossa base
+                de dados. 😕
+              </S.LabelInfoSearchPokemonName>
+            )}
+
             <Input
               placeholder="Busque o pokémon pelo nome"
+              placeholderTextColor="#5e5e5e"
               keyboardType="default"
               autoCapitalize="none"
               onChangeText={text => setSearchPokemon(text)}
               value={searchPokemon}
             />
-
-            {pokemon.name && <Text>Oiii</Text>}
 
             <S.FlatListCustom
               data={searchPokemonName}
