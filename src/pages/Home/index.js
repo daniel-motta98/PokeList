@@ -102,14 +102,6 @@ const Pokemon = () => {
         {loading && <S.LoadingIndicator size="large" color="#ccc" />}
         {!loading && (
           <>
-            {searchPokemonName.length === 0 && (
-              <S.LabelInfoSearchPokemonName>
-                Clique em "ver mais" para carregar sua tela, se nenhum pokémon
-                aparecer, significa que não temos ele cadastrado na nossa base
-                de dados. 😕
-              </S.LabelInfoSearchPokemonName>
-            )}
-
             <Input
               placeholder="Busque o pokémon pelo nome"
               placeholderTextColor="#5e5e5e"
@@ -118,6 +110,14 @@ const Pokemon = () => {
               onChangeText={text => setSearchPokemon(text)}
               value={searchPokemon}
             />
+
+            {searchPokemonName.length === 0 && (
+              <S.LabelInfoSearchPokemonName>
+                Clique em "ver mais" para carregar sua tela, se nenhum pokémon
+                aparecer, significa que não temos ele cadastrado na nossa base
+                de dados. 😕
+              </S.LabelInfoSearchPokemonName>
+            )}
 
             <S.FlatListCustom
               data={searchPokemonName}
